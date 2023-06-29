@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header {
+    @apply bg-neutral-700 text-white;
+}
+h2  {
+    @apply text-2xl font-bold w-full pb-2;
+}
+h2:after {
+    @apply content-[''] block w-40 border-b-2 border-yellow-700;
+}
+h3  {
+    @apply text-xl font-bold;
+}
+h4  {
+    @apply text-sm font-bold;
+}
+footer > * {
+    @apply text-xs;
+}
+.container {
+    @apply max-w-screen-xl mx-auto px-8;
+}

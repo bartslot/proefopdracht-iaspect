@@ -1,0 +1,14 @@
+{
+    "name": "interbikes",
+    "version": "0.92.12",
+    "description": "",
+    "main": "index.html",
+    "license": "MIT",
+    "dependencies": {
+        "flickity": "^3.0.0",
+        "http-server": "^14.1.1"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.3.2"
+    }
+}
