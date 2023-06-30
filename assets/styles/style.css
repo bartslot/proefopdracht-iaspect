@@ -5,11 +5,17 @@
 header {
     @apply bg-neutral-700 text-white;
 }
+h1  {
+    @apply text-4xl font-bold;
+}
 h2  {
     @apply text-2xl font-bold w-full pb-2;
 }
-h2:after {
-    @apply content-[''] block w-40 border-b-2 border-yellow-700;
+h2:after:not(.clean-header) {
+    @apply content-[''] block w-20 border-b-2 mt-2 border-primary;
+}
+h2.heading-centered:after {
+    @apply text-center mx-auto;
 }
 h3  {
     @apply text-xl font-bold;
@@ -22,4 +28,13 @@ footer > * {
 }
 .container {
     @apply max-w-screen-xl mx-auto px-8;
+} 
+.flickity-viewport {
+    @apply h-[500px] overflow-y-visible !important;
+    }
+.carousel-cell > div {
+    @apply flex flex-col w-48 gap-2 mr-8 shadow-md rounded-md;
+}
+.carousel img {
+    @apply object-cover w-full h-full;
 }

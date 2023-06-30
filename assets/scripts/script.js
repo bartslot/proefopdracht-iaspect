@@ -1,30 +1,41 @@
 //API URL
 const api = 'https://jsonplaceholder.typicode.com/photos';
 
-// fetch(api)
-//   .then(response => response.json())
-//   .then(data => {
-//     // Process the JSON data and generate images
-//     generateImages(data);
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//   });
-// // Generate images from JSON data
+// Fetch the JSON data
+fetchImageData();
 
-// function calculateImageCount() {
-//     const imageElements = document.getElementsByClassName('target-image');
-//     const imageCount = imageElements.length;
-//     return imageCount;
-//   }
-  
-// function generateImages(data) {
-//     // Assuming the JSON data is an array of image URLs
-//     data.forEach(imageUrl => {
-//       const img = document.createElement('img');
-//       img.src = imageUrl;
-//       document.body.appendChild(img); // Append the image to the document body or any other element
-//     });
-//   }
+function fetchImageData() {
+  fetch(api)
+    .then(response => response.json())
+    .then(data => {
+      // Process the JSON data and generate images
+      console.log(data);
+      generateImages(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
 
-console.log(api)
+// Generate images from JSON data
+
+function generateImages(data) {
+  const targetImages = document.getElementsByClassName('target-image');
+
+  for (let i = 0; i < targetImages.length; i++) {
+    const targetImage = targetImages[i];
+    const imageId = parseInt(targetImage.id.split('-')[2]);
+
+    if (imageId) {
+      const foundImage = data.find(image => image.id === imageId);
+
+      if (foundImage) {
+        targetImage.src = foundImage.thumbnailUrl;
+        targetImage.alt = foundImage.title;
+
+      }
+    }
+  }
+}
+
+console.log(api);
